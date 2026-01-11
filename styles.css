@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.blob {
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
+  filter: blur(80px);
+  animation: float 12s ease-in-out infinite;
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 40px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.logo-top {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  animation: fadeDown 1s ease-out forwards;
+}
+
+.logo-top img {
+  width: clamp(180px, 35vw, 280px);
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  animation: slideDown 1.1s ease-out forwards;
+}
+
+.description {
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: fadeUp 1.1s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+.cta-button {
+  padding: 16px 36px;
+  border-radius: 50px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  animation: fadeUp 1.1s ease-out forwards, pulse 3s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+}
+
+footer {
+  margin: 30px 0 20px;
+  display: flex;
+  gap: 24px;
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+.social svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.social:hover svg {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(25px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 40px); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 600px) {
+  .description {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 14px 28px;
+  }
+}
